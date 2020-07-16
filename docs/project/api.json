@@ -1,0 +1,792 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "JavaWorkersApp API",
+    "version": "1.0",
+    "description": "",
+    "x-logo": {
+      "url": ""
+    },
+    "license": null,
+    "contact": null
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Lokalny serwer deweloperski",
+      "x-last-modified": 1593189042408
+    }
+  ],
+  "paths": {
+    "/auth/token": {
+      "summary": "Pobierz token uwierzytelniający",
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponse"
+                }
+              }
+            },
+            "x-last-modified": 1593371572643
+          }
+        }
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "name": "username",
+          "description": "Nazwa użytkownika",
+          "in": "query",
+          "required": true,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593188395867
+        },
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "password",
+          "description": "Hasło",
+          "in": "query",
+          "required": true,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593188407368
+        }
+      ],
+      "x-last-modified": 1593188359698
+    },
+    "/auth/current": {
+      "summary": "Pobierz obiekt zalogowanego użytkownika",
+      "get": {
+        "tags": [],
+        "description": "",
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            },
+            "x-last-modified": 1593371600180
+          }
+        }
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "name": "username",
+          "description": "Nazwa użytkownika",
+          "in": "query",
+          "required": true,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593188395867
+        },
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "password",
+          "description": "Hasło",
+          "in": "query",
+          "required": true,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593188407368
+        }
+      ],
+      "x-last-modified": 1593188465873
+    },
+    "/mange/register": {
+      "summary": "Zarejestruj użytkownika",
+      "post": {
+        "tags": [],
+        "requestBody": {
+          "$ref": "#/components/schemas/UserBody"
+        }
+      },
+      "parameters": [],
+      "x-last-modified": 1593188989393
+    },
+    "/manage/activate": {
+      "summary": "Aktywuj użytkownika",
+      "post": {
+        "tags": []
+      },
+      "x-last-modified": 1593189499998,
+      "parameters": [
+        {
+          "name": "code",
+          "in": "query",
+          "example": "",
+          "required": true,
+          "deprecated": false,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593371676799
+        }
+      ]
+    },
+    "/manage/roles": {
+      "summary": "Pobierz role użytkownika",
+      "get": {
+        "tags": [],
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            },
+            "x-last-modified": 1593371713819
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            },
+            "x-last-modified": 1593371747660
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            },
+            "x-last-modified": 1593371815675
+          }
+        }
+      },
+      "x-last-modified": 1593189641227,
+      "parameters": [
+        {
+          "name": "username",
+          "in": "query",
+          "example": "",
+          "required": false,
+          "deprecated": false,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593371724495
+        },
+        {
+          "name": "roles",
+          "in": "query",
+          "example": "",
+          "required": true,
+          "deprecated": false,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593371771525
+        }
+      ]
+    },
+    "/api/configuration": {
+      "summary": "Pobierz parametry konfiguracyjne",
+      "get": {
+        "tags": [],
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponse"
+                },
+                "example": ""
+              }
+            },
+            "x-last-modified": 1593371916047
+          }
+        }
+      },
+      "x-last-modified": 1593189677004,
+      "parameters": [
+        {
+          "name": "perPage",
+          "in": "query",
+          "example": "",
+          "required": true,
+          "deprecated": false,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593371873550
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "example": "",
+          "required": true,
+          "deprecated": false,
+          "allowEmptyValue": false,
+          "x-last-modified": 1593371881148
+        }
+      ]
+    },
+    "/api/configuration/{name}": {
+      "summary": "Parametr konfiguracyjny",
+      "get": {
+        "tags": [],
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/ConfigurationObject"
+                }
+              }
+            },
+            "x-last-modified": 1593371945852
+          }
+        }
+      },
+      "put": {
+        "tags": [],
+        "responses": {
+          "200": {
+            "type": "",
+            "description": "",
+            "content": {
+              "application/json": {
+                "encoding": "",
+                "schema": {
+                  "$ref": "#/components/schemas/ConfigurationObject"
+                }
+              }
+            },
+            "x-last-modified": 1593371976176
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/schemas/ConfigurationUpdateObject"
+        }
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "name",
+          "description": "Nazwa parametru konfiguracyjnego",
+          "in": "path",
+          "required": true,
+          "x-last-modified": 1593189726999
+        }
+      ],
+      "x-last-modified": 1593189708621
+    },
+    "/api/positions": {
+      "summary": "Stanowiska",
+      "get": {
+        "tags": []
+      },
+      "post": {
+        "tags": []
+      },
+      "x-last-modified": 1593189762984
+    },
+    "/api/positions/searchtext": {
+      "get": {
+        "tags": []
+      },
+      "x-last-modified": 1593189774407
+    },
+    "/api/positions/{positionId}": {
+      "get": {
+        "tags": []
+      },
+      "put": {
+        "tags": []
+      },
+      "delete": {
+        "tags": []
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "positionId",
+          "in": "path",
+          "required": true,
+          "x-last-modified": 1593189804464
+        }
+      ],
+      "x-last-modified": 1593189794582
+    },
+    "/api/salaries": {
+      "get": {
+        "tags": []
+      },
+      "post": {
+        "tags": []
+      },
+      "x-last-modified": 1593189822896
+    },
+    "/api/salaries/mysalaries": {
+      "get": {
+        "tags": []
+      },
+      "x-last-modified": 1593189833238
+    },
+    "/api/salaries/{salaryId}": {
+      "get": {
+        "tags": []
+      },
+      "put": {
+        "tags": []
+      },
+      "delete": {
+        "tags": []
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "salaryId",
+          "in": "path",
+          "required": true,
+          "x-last-modified": 1593189860331
+        }
+      ],
+      "x-last-modified": 1593189848325
+    },
+    "/api/salarytargets": {
+      "summary": "Obsługa celów płatności",
+      "post": {
+        "tags": []
+      },
+      "x-last-modified": 1593331070325
+    },
+    "/api/salarytargets/mysalarytargets": {
+      "get": {
+        "tags": []
+      },
+      "x-last-modified": 1593331089424
+    },
+    "/api/salarytargets/{salaryTargetId}": {
+      "get": {
+        "tags": []
+      },
+      "put": {
+        "tags": []
+      },
+      "delete": {
+        "tags": []
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "salaryTargetId",
+          "in": "path",
+          "required": true,
+          "x-last-modified": 1593331195440
+        }
+      ],
+      "x-last-modified": 1593331180264
+    },
+    "/api/salarytargets/{salaryTargetId}/select": {
+      "put": {
+        "tags": []
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "salaryTargetId",
+          "in": "path",
+          "required": true,
+          "x-last-modified": 1593331307061
+        }
+      ],
+      "x-last-modified": 1593331291873
+    },
+    "/api/userworkers": {
+      "get": {
+        "tags": []
+      },
+      "x-last-modified": 1593331421614
+    },
+    "/api/userworkers/{userId}": {
+      "get": {
+        "tags": []
+      },
+      "put": {
+        "tags": []
+      },
+      "parameters": [
+        {
+          "deprecated": false,
+          "example": "",
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "x-last-modified": 1593331448941
+        }
+      ],
+      "x-last-modified": 1593331439165
+    },
+    "/api/userworkers/searchtext": {
+      "get": {
+        "tags": []
+      },
+      "x-last-modified": 1593331466573
+    },
+    "/api/workers": {
+      "get": {
+        "tags": []
+      },
+      "post": {
+        "tags": []
+      },
+      "x-last-modified": 1593331492510
+    },
+    "/api/workers/searchworker": {
+      "get": {
+        "tags": []
+      },
+      "x-last-modified": 1593331510111
+    },
+    "/api/workers/{workerId}": {
+      "get": {
+        "tags": []
+      },
+      "put": {
+        "tags": []
+      },
+      "delete": {
+        "tags": []
+      },
+      "x-last-modified": 1593331540814
+    }
+  },
+  "components": {
+    "schemas": {
+      "TokenResponse": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "username": "string",
+          "accessToken": "string",
+          "expires": "string",
+          "roles": [
+            "role1"
+          ]
+        },
+        "x-last-modified": 1593356117175
+      },
+      "UserResponse": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "username": "string",
+          "email": "string",
+          "roles": [
+            "role1"
+          ]
+        },
+        "x-last-modified": 1593356158124
+      },
+      "ConfigurationObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "name": "string",
+          "description": "string",
+          "value": "string"
+        },
+        "x-last-modified": 1593356237941
+      },
+      "PositionObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "name": "string",
+          "description": "string",
+          "base": "string"
+        },
+        "x-last-modified": 1593356295359
+      },
+      "SalaryObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "date": "string",
+          "bonus": "string",
+          "status": "string",
+          "taxTotal": "string",
+          "taxGross": "string",
+          "taxNet": "string",
+          "salaryTargetId": 10001,
+          "saaryTargetName": "string",
+          "workerId": 10002,
+          "workerFirstName": "string",
+          "workerLastName": "string"
+        },
+        "x-last-modified": 1593356464523
+      },
+      "ConfigurationUpdateObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "value": "string"
+        },
+        "x-last-modified": 1593356775238
+      },
+      "SalaryUpdateObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "date": "string",
+          "bonus": "string",
+          "salaryTargetId": 10001
+        },
+        "x-last-modified": 1593356819271
+      },
+      "PositionUpdateObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "name": "string",
+          "description": "string",
+          "base": "string"
+        },
+        "x-last-modified": 1593356862619
+      },
+      "SalaryTargetObect": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "name": "string",
+          "description": "string",
+          "selected": true
+        },
+        "x-last-modified": 1593357094979
+      },
+      "SalaryTargetUpdateObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "name": "string",
+          "bankAccount": "string"
+        },
+        "x-last-modified": 1593357136012
+      },
+      "UserWorkerObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "userId": 10000,
+          "workerId": 10001,
+          "username": "string",
+          "roles": [
+            "role1"
+          ],
+          "email": "string",
+          "firstName": "string",
+          "lastName": "string",
+          "birthday": "string",
+          "address": "string",
+          "phoneNumber": "string"
+        },
+        "x-last-modified": 1593364762828
+      },
+      "UserWorkerUpdateObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "userId": 10000,
+          "username": "string",
+          "role": "string",
+          "email": "string",
+          "workerId": 10001
+        },
+        "x-last-modified": 1593364915750
+      },
+      "WorkerObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "firstName": "string",
+          "lastName": "string",
+          "birthday": "string",
+          "address": "string",
+          "phoneNumber": "string",
+          "positionIds": [
+            10001
+          ]
+        },
+        "x-last-modified": 1593365037301
+      },
+      "WorkerUpdateObject": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "id": 10000,
+          "firstName": "string",
+          "lastName": "string",
+          "birthday": "string",
+          "address": "string",
+          "phoneNumber": "string",
+          "positionIds": [
+            10001
+          ]
+        },
+        "x-last-modified": 1593365055065
+      },
+      "UserBody": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "username": "string",
+          "password": "string",
+          "email": "string"
+        },
+        "x-last-modified": 1593365182128
+      },
+      "ErrorResponse": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "status": "string",
+          "exception": "string",
+          "message": "string"
+        },
+        "x-last-modified": 1593365215776
+      },
+      "PageResponse": {
+        "required": [],
+        "enum": [],
+        "type": "object",
+        "example": {
+          "totalElements": 100,
+          "totalPages": 10,
+          "perPage": 10,
+          "page": 0,
+          "elements": [
+            {}
+          ]
+        },
+        "x-last-modified": 1593368532980
+      }
+    },
+    "requestBodies": {
+      "UserBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "passsword": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "example": {
+                "username": "User1",
+                "passsword": "h@sl0",
+                "email": "example@mail.com"
+              }
+            },
+            "example": {
+              "username": "User1",
+              "passsword": "h@sl0",
+              "email": "example@mail.com"
+            }
+          }
+        },
+        "x-last-modified": 1593189166105
+      }
+    },
+    "headers": {
+      "Authorization": {
+        "schema": {
+          "format": "Bearer",
+          "pattern": "",
+          "enum": [],
+          "type": "string",
+          "example": ""
+        },
+        "example": "",
+        "description": "Authorization header"
+      }
+    },
+    "securitySchemes": {
+      "Bearer Token Authorization": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "x-last-modified": 1593355944597
+      }
+    },
+    "responses": {},
+    "parameters": {}
+  },
+  "tags": [],
+  "security": [],
+  "externalDocs": null
+}

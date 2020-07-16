@@ -1,0 +1,2 @@
+- Gdy rola user lub manager - user musi mieć dowiązanie z rekordem w tabeli worker
+- Każdy worker musi mieć przynajmniej jeden salary target (prosić o uzupełnienie gdy nie ma)
